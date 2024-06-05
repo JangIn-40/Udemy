@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\source\\unreallearningkit\\movingplatform.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\x64\\unreallearningkiteditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderoldest.h.pch",
+        "Includes": [
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unreallearningkit\\definitions.unreallearningkit.h",
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\source\\unreallearningkit\\movingplatform.h",
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\unrealeditor\\inc\\unreallearningkit\\uht\\movingplatform.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
