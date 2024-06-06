@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\unrealeditor\\inc\\unreallearningkit\\uht\\unreallearningkit.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\x64\\unreallearningkiteditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.inclorderoldest.h.pch",
+        "Includes": [
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\obstacleassault\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\unreallearningkit\\definitions.unreallearningkit.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
