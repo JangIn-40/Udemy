@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\jih10\\myplace\\unreal\\udemy\\cryptraider\\cryptraider\\intermediate\\build\\win64\\unrealeditor\\inc\\cryptraider\\uht\\cryptraiderplayercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jih10\\myplace\\unreal\\udemy\\cryptraider\\cryptraider\\intermediate\\build\\win64\\x64\\cryptraidereditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\cryptraider\\cryptraider\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\cryptraider\\definitions.cryptraider.h",
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\cryptraider\\cryptraider\\source\\cryptraider\\cryptraiderplayercontroller.h",
+            "c:\\users\\jih10\\myplace\\unreal\\udemy\\cryptraider\\cryptraider\\intermediate\\build\\win64\\unrealeditor\\inc\\cryptraider\\uht\\cryptraiderplayercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
