@@ -66,6 +66,12 @@
     <ClInclude Include="..\..\Source\CryptRaider\CryptRaiderProjectile.h">
       <Filter>Source\CryptRaider</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\CryptRaider\Grabber.cpp">
+      <Filter>Source\CryptRaider</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CryptRaider\Grabber.h">
+      <Filter>Source\CryptRaider</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\CryptRaider\Mover.cpp">
       <Filter>Source\CryptRaider</Filter>
     </ClCompile>
