@@ -12,7 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeGrabber() {}
 // Begin Cross Module References
 CRYPTRAIDER_API UClass* Z_Construct_UClass_UGrabber();
 CRYPTRAIDER_API UClass* Z_Construct_UClass_UGrabber_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_USceneComponent();
+ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 UPackage* Z_Construct_UPackage__Script_CryptRaider();
 // End Cross Module References
 
@@ -31,30 +31,18 @@ struct Z_Construct_UClass_UGrabber_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "ClassGroupNames", "Custom" },
-		{ "HideCategories", "Trigger PhysicsVolume" },
 		{ "IncludePath", "Grabber.h" },
 		{ "ModuleRelativePath", "Grabber.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxGrabDistance_MetaData[] = {
-		{ "Category", "Grabber" },
-		{ "ModuleRelativePath", "Grabber.h" },
-	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_MaxGrabDistance;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UGrabber>::IsAbstract,
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UGrabber_Statics::NewProp_MaxGrabDistance = { "MaxGrabDistance", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGrabber, MaxGrabDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxGrabDistance_MetaData), NewProp_MaxGrabDistance_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UGrabber_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGrabber_Statics::NewProp_MaxGrabDistance,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGrabber_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UGrabber_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_USceneComponent,
+	(UObject* (*)())Z_Construct_UClass_UActorComponent,
 	(UObject* (*)())Z_Construct_UPackage__Script_CryptRaider,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGrabber_Statics::DependentSingletons) < 16);
@@ -64,11 +52,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UGrabber_Statics::Class
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	nullptr,
-	Z_Construct_UClass_UGrabber_Statics::PropPointers,
+	nullptr,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
-	UE_ARRAY_COUNT(Z_Construct_UClass_UGrabber_Statics::PropPointers),
+	0,
 	0,
 	0x00B000A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGrabber_Statics::Class_MetaDataParams), Z_Construct_UClass_UGrabber_Statics::Class_MetaDataParams)
@@ -93,10 +81,10 @@ UGrabber::~UGrabber() {}
 struct Z_CompiledInDeferFile_FID_Users_jih10_MyPlace_Unreal_Udemy_CryptRaider_CryptRaider_Source_CryptRaider_Grabber_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UGrabber, UGrabber::StaticClass, TEXT("UGrabber"), &Z_Registration_Info_UClass_UGrabber, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGrabber), 270678577U) },
+		{ Z_Construct_UClass_UGrabber, UGrabber::StaticClass, TEXT("UGrabber"), &Z_Registration_Info_UClass_UGrabber, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGrabber), 4276412012U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jih10_MyPlace_Unreal_Udemy_CryptRaider_CryptRaider_Source_CryptRaider_Grabber_h_3945632533(TEXT("/Script/CryptRaider"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jih10_MyPlace_Unreal_Udemy_CryptRaider_CryptRaider_Source_CryptRaider_Grabber_h_2439562579(TEXT("/Script/CryptRaider"),
 	Z_CompiledInDeferFile_FID_Users_jih10_MyPlace_Unreal_Udemy_CryptRaider_CryptRaider_Source_CryptRaider_Grabber_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jih10_MyPlace_Unreal_Udemy_CryptRaider_CryptRaider_Source_CryptRaider_Grabber_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
