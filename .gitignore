@@ -76,16 +76,16 @@ DerivedDataCache/*
 /CryptRaider/CryptRaider/Content/MedievalDungeon
 
 # add unreal engine ignore
-CryptRaider\CryptRaider\.vs\
-CryptRaider\CryptRaider\Binaries\
-CryptRaider\CryptRaider\Saved\
-CryptRaider\CryptRaider\Intermediate\
-CryptRaider\CryptRaider\DerivedDataCache\
-ObstacleAssault\.vs\
-ObstacleAssault\Binaries\
-ObstacleAssault\Saved\
-ObstacleAssault\Intermediate\
-ObstacleAssault\DerivedDataCache\
-WarehouseWreckage\Saved\
-WarehouseWreckage\Intermediate\
-WarehouseWreckage\DerivedDataCache\
+CryptRaider/CryptRaider/.vs/
+CryptRaider/CryptRaider/Binaries/
+CryptRaider/CryptRaider\Saved/
+CryptRaider/CryptRaider/Intermediate/
+CryptRaider/CryptRaider/DerivedDataCache/
+ObstacleAssault/.vs/
+ObstacleAssault/Binaries/
+ObstacleAssault/Saved/
+ObstacleAssault/Intermediate/
+ObstacleAssault/DerivedDataCache/
+WarehouseWreckage/Saved/
+WarehouseWreckage/Intermediate/
+WarehouseWreckage/DerivedDataCache/

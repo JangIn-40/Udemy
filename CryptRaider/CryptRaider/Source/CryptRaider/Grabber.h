@@ -3,12 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "Components/SceneComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "DrawDebugHelpers.h"
 #include "Grabber.generated.h"
-#include ""
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class CRYPTRAIDER_API UGrabber : public UActorComponent
+class CRYPTRAIDER_API UGrabber : public USceneComponent
 {
 	GENERATED_BODY()
 
@@ -24,23 +25,23 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	UFUNCTION(BlueprintCallable, Category = "Grab")
+	UFUNCTION(BlueprintCallable)
 	void Grab();
 
-	UFUNCTION(BlueprintCallable, Category = "Grab")
-	void Release();
+	UFUNCTION(BlueprintCallable)
+	void Completed();
 
 private:
-	float Reach = 100.f;
+	UPROPERTY(EditAnywhere)
+	float MaxGrabDistance = 400.f;
 
 	UPROPERTY(EditAnywhere)
-	UInputAction *GrabAction;
-		
+	float GrabRadius = 100.f;
+
 	UPROPERTY(EditAnywhere)
-	UPhysicsHandleComponenet *PhysicsHandle;
+	float HoldDistance = 200.f;
 
-	void FindPhysicsHandle();
-	void SetupInputComponent();
-	FHitResult GetFirstPhysicsBodyInReach() const;
+	UPhysicsHandleComponent* GetPhysicsHandle() const;
 
+	bool GetGrabbableInReach(FHitResult& OutHitResult) const;
 };
