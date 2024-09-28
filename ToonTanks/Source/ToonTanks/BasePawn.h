@@ -16,7 +16,9 @@ public:
 	ABasePawn();
 
 protected:
+
 	void RotateTurret(FVector LookAtTarget);
+	void Fire();
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
@@ -31,4 +33,6 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Head")
 	float RotationSpeed = 5.f;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	TSubclassOf<class AProjectile> ProjectileClass;
 };

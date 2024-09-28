@@ -37,21 +37,21 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 	class UInputMappingContext* DefaultMappingContext;
-
 	UPROPERTY(EditAnywhere, Category = "Input")
 	class UInputAction* MoveAction;
-
 	UPROPERTY(EditAnywhere, Category = "Input")
 	class UInputAction* TurnAction;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	class UInputAction* FireAction;
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float MovementSpeed;
-
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnRate;
 
 	void Move(const FInputActionValue& Value);
 	void Turn(const FInputActionValue& Value);
+
 
 	APlayerController* PlayerController;
 };
