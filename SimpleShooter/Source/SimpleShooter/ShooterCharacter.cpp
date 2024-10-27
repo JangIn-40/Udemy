@@ -5,6 +5,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "InputMappingContext.h"
+#include "Gun.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter()
@@ -96,6 +97,8 @@ void AShooterCharacter::BeginPlay()
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		//Subsystem->RemoveMappingContext(DefaultMappingContext);
 	}
+
+	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
 }
 
 // Called every frame
