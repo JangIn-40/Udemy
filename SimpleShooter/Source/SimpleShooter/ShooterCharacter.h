@@ -46,10 +46,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UInputAction> MoveRightAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UInputAction> ShotAction;
+
 	void MoveForward(const FInputActionValue& Value);
 	void MoveRight(const FInputActionValue& Value);
 	void LookUp(const FInputActionValue& Value);
 	void LookRight(const FInputActionValue& Value);
+	void Shot(const FInputActionValue& Value);
 
 private:
 	UPROPERTY(EditAnywhere)

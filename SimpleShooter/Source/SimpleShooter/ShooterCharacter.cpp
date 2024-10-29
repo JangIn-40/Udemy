@@ -84,6 +84,18 @@ AShooterCharacter::AShooterCharacter()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("MoveRightAction load fail"));
 	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> ShotActionRef(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/Input/Actions/IA_Shot.IA_Shot'")
+	);
+	if (ShotActionRef.Succeeded())
+	{
+		ShotAction = ShotActionRef.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ShotAction load fail"));
+	}
 }
 
 // Called when the game starts or when spawned
@@ -99,6 +111,9 @@ void AShooterCharacter::BeginPlay()
 	}
 
 	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+	Gun->SetOwner(this);
 }
 
 // Called every frame
@@ -121,7 +136,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	EnhancedInputComonent->BindAction(LookRightAction, ETriggerEvent::Triggered, this, &AShooterCharacter::LookRight);
 	EnhancedInputComonent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
 	EnhancedInputComonent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
-	
+	EnhancedInputComonent->BindAction(ShotAction, ETriggerEvent::Started, this, &AShooterCharacter::Shot);
 }
 
 void AShooterCharacter::MoveForward(const FInputActionValue& Value)
@@ -146,5 +161,10 @@ void AShooterCharacter::LookRight(const FInputActionValue& Value)
 {
 	float AxisValue = Value.Get<float>();
 	AddControllerYawInput(AxisValue * GetWorld()->GetDeltaSeconds() * RotationRate);
+}
+
+void AShooterCharacter::Shot(const FInputActionValue& Value)
+{
+	Gun->PullTrigger();
 }
 

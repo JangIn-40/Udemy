@@ -2,6 +2,7 @@
 
 
 #include "Gun.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AGun::AGun()
@@ -14,6 +15,35 @@ AGun::AGun()
 
 	Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SKMesh"));
 	Mesh->SetupAttachment(Root);
+}
+
+void AGun::PullTrigger()
+{
+	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"), FVector::ZeroVector, FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset);
+
+	APawn* OwnerPawn = Cast<APawn>(GetOwner());
+	if (!OwnerPawn)
+	{
+		return;
+	}
+	AController* OwnerController = OwnerPawn->GetController();
+	if (!OwnerController)
+	{
+		return;
+	}
+
+	FVector PlayerViewLocation;
+	FRotator PlayerViewRotation;
+	OwnerController->GetPlayerViewPoint(PlayerViewLocation, PlayerViewRotation);
+
+	FVector End = PlayerViewLocation + PlayerViewRotation.Vector() * MaxRange;
+	FHitResult HitResult;
+	bool bSuccess = GetWorld()->LineTraceSingleByChannel(HitResult, PlayerViewLocation, End, ECollisionChannel::ECC_GameTraceChannel1);
+	if (bSuccess)
+	{
+		FVector ShotDirection = -PlayerViewRotation.Vector();
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, HitResult.Location, ShotDirection.Rotation());
+	}
 }
 
 // Called when the game starts or when spawned
