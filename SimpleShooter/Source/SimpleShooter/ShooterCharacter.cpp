@@ -104,16 +104,27 @@ void AShooterCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	APlayerController* PlayerController = Cast<APlayerController>(GetController());
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+	if (PlayerController)
 	{
-		Subsystem->AddMappingContext(DefaultMappingContext, 0);
-		//Subsystem->RemoveMappingContext(DefaultMappingContext);
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+			//Subsystem->RemoveMappingContext(DefaultMappingContext);
+		}
+
 	}
+
+	Health = MaxHealth;
 
 	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
 	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
 	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
 	Gun->SetOwner(this);
+}
+
+bool AShooterCharacter::IsDead() const
+{
+	return Health <= 0;
 }
 
 // Called every frame
@@ -137,6 +148,17 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	EnhancedInputComonent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
 	EnhancedInputComonent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 	EnhancedInputComonent->BindAction(ShotAction, ETriggerEvent::Started, this, &AShooterCharacter::Shot);
+}
+
+float AShooterCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+
+	Health -= DamageToApply;
+	Health = FMath::Clamp(Health, 0, MaxHealth);
+	UE_LOG(LogTemp, Display, TEXT("Health: %f"), Health);
+
+	return DamageToApply;
 }
 
 void AShooterCharacter::MoveForward(const FInputActionValue& Value)
