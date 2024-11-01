@@ -32,6 +32,8 @@ public:
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
+	void Shot(const FInputActionValue& Value);
+
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Input", meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UInputMappingContext> DefaultMappingContext;
@@ -58,7 +60,6 @@ protected:
 	void MoveRight(const FInputActionValue& Value);
 	void LookUp(const FInputActionValue& Value);
 	void LookRight(const FInputActionValue& Value);
-	void Shot(const FInputActionValue& Value);
 
 private:
 	UPROPERTY(EditAnywhere)
