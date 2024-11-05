@@ -13,7 +13,8 @@ public class SimpleShooter : ModuleRules
 			"Core", "CoreUObject", 
 			"Engine", 
 			"InputCore", "EnhancedInput",
-            "AIModule", "GameplayTasks"
+            "AIModule", "GameplayTasks",
+			"UMG"
         });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
